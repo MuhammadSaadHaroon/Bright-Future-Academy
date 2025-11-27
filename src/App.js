@@ -1,6 +1,5 @@
-// src/App.js
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom"; // <-- HashRouter
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./firebase/config";
 
@@ -20,10 +19,10 @@ function App() {
     return () => unsub();
   }, []);
 
-  if (initializing) return <div style={{padding:20}}>Loading...</div>;
+  if (initializing) return <div style={{ padding: 20 }}>Loading...</div>;
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Navigate to="/login" />} />
         <Route path="/login" element={!user ? <Login /> : <Navigate to="/dashboard" />} />
@@ -34,7 +33,7 @@ function App() {
         />
         <Route path="*" element={<Navigate to={user ? "/dashboard" : "/login"} />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
