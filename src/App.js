@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HashRouter, Routes, Route, Navigate } from "react-router-dom"; // <-- HashRouter
+import { Routes, Route, Navigate } from "react-router-dom"; // <-- BrowserRouter / HashRouter hatao
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./firebase/config";
 
@@ -22,18 +22,16 @@ function App() {
   if (initializing) return <div style={{ padding: 20 }}>Loading...</div>;
 
   return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Navigate to="/login" />} />
-        <Route path="/login" element={!user ? <Login /> : <Navigate to="/dashboard" />} />
-        <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/dashboard" />} />
-        <Route
-          path="/dashboard/*"
-          element={user ? <Dashboard user={user} onLogout={() => signOut(auth)} /> : <Navigate to="/login" />}
-        />
-        <Route path="*" element={<Navigate to={user ? "/dashboard" : "/login"} />} />
-      </Routes>
-    </HashRouter>
+    <Routes>
+      <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Navigate to="/login" />} />
+      <Route path="/login" element={!user ? <Login /> : <Navigate to="/dashboard" />} />
+      <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/dashboard" />} />
+      <Route
+        path="/dashboard/*"
+        element={user ? <Dashboard user={user} onLogout={() => signOut(auth)} /> : <Navigate to="/login" />}
+      />
+      <Route path="*" element={<Navigate to={user ? "/dashboard" : "/login"} />} />
+    </Routes>
   );
 }
 
