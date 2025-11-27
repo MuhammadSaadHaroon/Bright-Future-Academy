@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
+:root{
+  --primary:#1e3a8a;
+  --accent:#2563eb;
+  --sidebar:#1f2a6a;
+  --muted:#f1f5f9;
+}
+*{box-sizing:border-box}
+body,html{margin:0;padding:0;font-family: 'Poppins', system-ui, Arial;background:var(--muted);color:#111}
+
+/* Navbar */
+.navbar {
+  height:64px;
+  background: var(--primary);
+  color: #fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 0 20px;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:50;
+}
+.navbar .left {display:flex; align-items:center; gap:12px}
+.school-logo {width:40px;height:40px;border-radius:6px;background:#fff;display:flex;align-items:center;justify-content:center;color:var(--primary);font-weight:700}
+.school-name {font-size:1.1rem;font-weight:700;letter-spacing:0.3px}
+.navbar .right {display:flex; align-items:center; gap:12px}
+.avatar {width:40px;height:40px;border-radius:50%;background:#f59e0b; display:flex;align-items:center;justify-content:center; cursor:pointer}
+.author {position:relative}
+.author:hover .dropdown {display:block}
+.dropdown {
+  position:absolute;
+  top:48px;
+  right:0;
+  background:#fff;color:#111;border-radius:6px;padding:8px;box-shadow:0 6px 18px rgba(0,0,0,0.12);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Layout */
+.sidebar {
+  position:fixed;
+  top:64px;
+  left:0;
+  bottom:0;
+  width:240px;
+  background:var(--sidebar);
+  color:#fff;
+  padding:14px 8px;
+  overflow:auto;
+}
+.content {
+  margin-top:64px;
+  margin-left:240px;
+  padding:20px;
+  min-height:calc(100vh - 64px);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* Sidebar menu */
+.menu-item {padding:10px 14px;border-radius:6px;margin-bottom:6px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.menu-item:hover{background:#2b3570}
+.submenu {margin-top:6px;padding-left:10px;display:flex;flex-direction:column;gap:6px}
+.submenu a {color:#c7d2fe;text-decoration:none;padding:8px;border-radius:6px}
+.submenu a:hover{color:#fff;background:rgba(255,255,255,0.03)}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Cards, forms, tables */
+.form-card {background:#fff;padding:20px;border-radius:10px;box-shadow:0 6px 20px rgba(16,24,40,0.06);max-width:900px;margin:10px auto}
+.form-card h2{color:var(--primary);margin-top:0}
+.form-row{display:flex;gap:12px}
+.form-row .col{flex:1}
+label{display:block;margin-bottom:6px;font-weight:600}
+input[type="text"],input[type="email"],input[type="password"],input[type="date"],select,textarea {
+  width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef8;background:#fff;
 }
+button.btn{background:var(--primary);color:#fff;padding:10px 14px;border:none;border-radius:8px;cursor:pointer}
+button.btn.secondary{background:#e2e8f0;color:#111}
 
-.App-link {
-  color: #61dafb;
-}
+/* Table */
+.table-card{background:#fff;padding:18px;border-radius:10px;box-shadow:0 6px 20px rgba(16,24,40,0.06)}
+.table-card table{width:100%;border-collapse:collapse}
+.table-card th, .table-card td{padding:10px;border-bottom:1px solid #f1f5f9;text-align:left}
+.table-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Fees grid */
+.fee-container {display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
+.fee-box {background:#fff;padding:15px;border-radius:8px;box-shadow:0 3px 6px rgba(0,0,0,0.1)}
+.fee-box button{background:#44bd32;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer}
+
+/* Responsive */
+@media(max-width:900px){
+  .sidebar{width:60px}
+  .content{margin-left:60px}
+  .school-name{display:none}
+  .submenu a{font-size:12px;padding:6px}
 }
