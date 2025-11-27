@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Bright-Future-Academy/static/css/main.eff8ecdc.css",
-    "main.js": "/Bright-Future-Academy/static/js/main.3264a938.js",
+    "main.js": "/Bright-Future-Academy/static/js/main.27d6239e.js",
     "static/media/logo.png": "/Bright-Future-Academy/static/media/logo.100b76a84c4fdc168d94.png",
     "index.html": "/Bright-Future-Academy/index.html",
     "main.eff8ecdc.css.map": "/Bright-Future-Academy/static/css/main.eff8ecdc.css.map",
-    "main.3264a938.js.map": "/Bright-Future-Academy/static/js/main.3264a938.js.map"
+    "main.27d6239e.js.map": "/Bright-Future-Academy/static/js/main.27d6239e.js.map"
   },
   "entrypoints": [
     "static/css/main.eff8ecdc.css",
-    "static/js/main.3264a938.js"
+    "static/js/main.27d6239e.js"
   ]
 }
